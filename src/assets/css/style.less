@@ -1,0 +1,442 @@
+@import "var";
+@import "../theme/default/css/var";
+html {
+  font-size: 100px;
+}
+@font-face {
+  font-family: 'iconfont';  /* project id 811634 */
+  src: url('//at.alicdn.com/t/font_811634_q2zv10dqq8a.eot');
+  src: url('//at.alicdn.com/t/font_811634_q2zv10dqq8a.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_811634_q2zv10dqq8a.woff') format('woff'),
+  url('//at.alicdn.com/t/font_811634_q2zv10dqq8a.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_811634_q2zv10dqq8a.svg#iconfont') format('svg');
+}
+body {
+  margin: @headerHeight 0 0 0;
+  padding: 0;
+  color: @fontColor;
+  background: @bgColor;
+  font-size: .15rem;
+  line-height: 1.74;
+  font-family: "Helvetica Neue", Helvetica, "Microsoft YaHei", "微软雅黑", "Microsoft JhengHei", "宋体", SimSun, Tahoma, Arial;
+}
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -webkit-touch-callout: none;
+  -webkit-overflow-scrolling: touch;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: @linkColor;
+  &:hover{
+    color: @hoverLinkColor;
+  }
+}
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+}
+a, button, input[type='button'], input[type='reset'], input[type='submit'] {
+  cursor: pointer;
+}
+a, p, label, div, h1, h2, h3, h4, h5, h6, i, table, tr, td, th, span, b, ul, li, ol, img, canvas, article, aside, dialog, footer, header, section, footer, nav, figure, menu {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+article, aside, dialog, footer, header, section, footer, nav, figure, menu {
+  display: block
+}
+img {
+  vertical-align: middle;
+  border: none;
+}
+s {
+  display: inline-block;
+  width: 0;
+  vertical-align: bottom;
+  overflow: hidden;
+  padding-left: 1em;
+  &.s1 {
+    padding-left: .5em;
+  }
+  &.s2 {
+    padding-left: 1em;
+  }
+  &.s3 {
+    padding-left: 1.5em;
+  }
+  &.s4 {
+    padding-left: 2em;
+  }
+  &.s5 {
+    padding-left: 2.5em;
+  }
+}
+
+.icon, *[class^='icon-'] {
+  font-family: "iconfont" !important;
+  font-size: inherit;
+  font-style: normal;
+  -webkit-text-stroke-width: 0.2px;
+  vertical-align: middle;
+}
+
+#header{
+  position: fixed;
+  background: @headerColor;
+  box-shadow: 0 0 5px 0 rgba(0,0,0,.7);
+  height: @headerHeight;
+  line-height: @headerHeight;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  >a.logo{
+    line-height: @headerHeight;
+    padding: 0 .15rem;
+    box-sizing: border-box;
+    width: @menuWidth;
+    display: block;
+    background: @themeColor;
+    color: @lightFontColor;
+    text-align: center;
+    .sl;
+    float: left;
+    font-size: .24rem;
+    &:hover{
+      color: @lightFontColor;
+    }
+  }
+  >ul.nav{
+    float: left;
+    margin-left: @hSpace;
+    li.myProject{
+      float: left;
+      @_radius : .03rem;
+      margin-right: 1em;
+      padding-right: 1em;
+      padding-left: .5em;
+      position: relative;
+      &:after{
+        .icon;
+        content: '\e68f';
+        position: absolute;
+        color: @searchColor;
+        //.duration(100ms);
+        font-size: .8em;
+        right: 0;
+        top: 0;
+      }
+      ul{
+        position: absolute;
+        display: none;
+        background: @headerColor;
+        width: 3rem;
+        top: @headerHeight + 0.05rem;
+        left: -.07rem;
+        box-shadow: 0 0 .1rem rgba(0,0,0,.3);
+        border-radius: @_radius;
+        &:before,&:after{
+          display: block;
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: .1rem;
+          top: -.1rem;
+          left: 0;
+          background: rgba(0,0,0,0);
+        }
+        &:after{
+          width: .2rem;
+          height: .2rem;
+          .rotate(45deg);
+          left: 3em;
+          background: @themeColor;
+        }
+        li{
+          padding: 0 @vSpace;
+          line-height: .4rem;
+          overflow: hidden;
+          cursor: pointer;
+          &.title{
+            background: @themeColor;
+            color: @lightFontColor;
+            text-align: center;
+            border-radius: @_radius @_radius 0 0;
+            cursor: default;
+            &:hover{
+              background: @themeColor;
+            }
+          }
+          &.workSpace{
+            text-align: center;
+            padding: .25rem 0 .1rem;
+            cursor: default;
+            &:hover{
+              background: @headerColor;
+            }
+          }
+          b{
+            float: right;
+            font-weight: normal;
+            position: relative;
+            overflow: hidden;
+            height: .4rem;
+            color: @fontColor;
+            &:after{
+              display: block;
+              content:'0';
+              color: #999;
+            }
+          }
+          &:hover{
+            background-color: @hoverNavColor;
+            a,b,b:after{
+              color: @themeColor;
+            }
+          }
+        }
+      }
+      &:hover{
+        color: @themeColor;
+        > a,&:after{
+          color: @themeColor;
+        }
+        &:after{
+          //.rotate(180deg, 50%, 50%)
+        }
+        ul{
+          display: block;
+        }
+      }
+    }
+    li.dashboard{
+      float: left;
+      a{
+        color: @dashboardFontColor;
+        &:hover{
+          color: @themeColor;
+        }
+      }
+    }
+  }
+  >ul.menu{
+    float: right;
+    line-height: @headerHeight;
+    padding-right: @hSpace;
+    >li{
+      float: left;
+      margin-left: @hSpace;
+      height: @headerHeight;
+      &.search{
+        border-right: solid 1px @borderColor;
+        padding-right: .8em;
+        margin-left: .8em;
+        position: relative;
+        &:after{
+          .icon('\e655');
+          position: absolute;
+          right: 1.3em;
+          top: 0;
+          color: @searchColor;
+        }
+        input{
+          width: 2.5rem;
+          height: .28rem;
+          box-sizing: border-box;
+          border: solid 1px @borderColor;
+          color: @fontColor;
+          border-radius: .03rem;
+          padding: 0 1.5em 0 .5em;
+          font-size: .14rem;
+        }
+      }
+      &.userMeta{
+        margin-left: .8em;
+        @_height:.35rem;
+        margin-top: (@headerHeight - @_height) / 2;
+        .avatar{
+          width: @_height;
+          height: @_height;
+          background: @avatarColor;
+          background-size: cover;
+          border-radius: .4rem;
+          float: left;
+          position: absolute;
+          &.default:after{
+            .icon('\e620');
+            color: #FFF;
+            font-size: .24rem;
+            line-height: @_height;
+            display: block;
+            text-align: center;
+          }
+        }
+        .userInfo{
+          padding-left: .4rem;
+          div{
+            line-height: .2rem;
+          }
+          p{
+            line-height: .15rem;
+            font-size: .8em;
+            max-width: 8em;
+            .sl;
+            &:before{
+              font-size: 1.2em;
+              content: '@';
+              vertical-align: middle;
+            }
+          }
+        }
+        &:hover{
+          a{
+            color: @themeColor;
+          }
+          .avatar{
+            box-shadow: inset 0 0 0 1rem @hoveAvatarColor;
+          }
+        }
+      }
+      .icon-message{
+        font-size: 1.3em;
+        position: relative;
+        &:before{
+          .icon('\e668');
+        }
+        span{
+          @_size:.16rem;
+          position: absolute;
+          right: @_size/-3;
+          top: @_size/-2;
+          width: @_size;
+          height: @_size;
+          line-height: @_size;
+          box-sizing: border-box;
+          font-size: .1rem;
+          background: @themeColor;
+          color:@lightFontColor;
+          border-radius: 1rem;
+          text-align: center;
+          .sl();
+        }
+      }
+      .icon-history:after{
+        .icon('\e686');
+      }
+      .icon-setup:after{
+        .icon('\e683');
+      }
+      .icon-exit:after{
+        .icon('\e66f');
+        font-size: 1.3em;
+      }
+    }
+  }
+}
+#leftMenu{
+  position: fixed;
+  width: @menuWidth;
+  overflow: hidden;
+  overflow-y: auto;
+  top: @headerHeight;
+  left: 0;
+  bottom: 0;
+  background: @menuColor;
+}
+#body{
+  margin-left: @menuWidth;
+  position: relative;
+}
+
+
+#dialog{
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  >.mask{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-backdrop-filter:blur(3px);
+    backdrop-filter: blur(15px);
+    background: rgba(0,0,0,.7);
+  }
+  >.dialog{
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    background: #FFF;
+    .translate();
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.7);
+    border-radius: 3px;
+    >.title{
+      font-size: 22px;
+      border-bottom: solid 1px #666;
+      padding: 0 15px;
+    }
+    >.content{
+      padding: 15px;
+      /*配置弹出框修改*/
+      max-height: 650px;
+      overflow: auto;
+      max-width: 900px;
+    }
+    >.btns{
+      padding: 15px;
+      text-align: right;
+      font-size: 0;
+      > div{
+        cursor: pointer;
+        display: inline-block;
+        font-size: 15px;
+        padding: 0 10px;
+        margin-left: 15px;
+        border: solid 1px #999;
+        border-radius: 3px;
+        &:hover, &.primary{
+          background: #5bd651;
+          border-color: #a5c261;
+          color : #FFF;
+        }
+      }
+    }
+    &.loading{
+      background: transparent url("../img/oval.svg") center center no-repeat;
+      background-size: contain;
+      box-shadow: none;
+      min-width: 70px;
+      min-height: 70px;
+      .btns{display: none;}
+      .content{
+        width: 50px;
+        height: 50px;
+        padding: 10px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 12px;
+        color: #FFF;
+        .sl;
+      }
+    }
+  }
+}

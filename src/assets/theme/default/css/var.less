@@ -1,0 +1,40 @@
+@themeColor : #f87d25;
+@fontColor : #333333;
+@bgColor : #f6f6f6;
+@lightFontColor : #ffffff;
+@lightColor : @themeColor;
+@borderColor : #e3e5ed;
+@focusBorderColor : @themeColor;
+@lightBorderColor : @themeColor;
+@buttonColor:@themeColor;
+@buttonFontColor : @lightFontColor;
+@linkColor : #666666;
+@hoverLinkColor : @themeColor;
+@headerColor:#ffffff;
+@searchColor:#999999;
+@avatarColor:#999999;
+@hoveAvatarColor:rgba(251,126,49,.6);
+@hoverNavColor:#fef2ea;
+@dashboardFontColor:#db5457;
+@menuColor:#2d2d2b;
+
+
+@headerHeight:.45rem;
+@menuWidth:2.6rem;
+@hSpace:.15rem;
+@vSpace:.2rem;
+
+
+.btnBorder(@_lineHeight:1.8, @_fontSize:.15rem, @_minWidth:.4rem){
+  display: inline-block;
+  text-align: center;
+  border: solid 1px @themeColor;
+  color: @themeColor;
+  padding: 0 @hSpace;
+  line-height: @_lineHeight;
+  font-size: @_fontSize;
+  min-width: @_minWidth;
+  border-radius: 0.03rem;
+}
+.btnBorder{.btnBorder();}
+

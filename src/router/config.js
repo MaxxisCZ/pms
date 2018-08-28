@@ -1,0 +1,1 @@
+module.exports = ["index", "test", "user/login"]
